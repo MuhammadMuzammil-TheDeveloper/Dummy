@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Projects - Muhammad Muzammil Full Stack Developer</title>
+  <meta name="description" content="Explore all projects by Muhammad Muzammil, Full Stack Developer: React apps, Supabase CRUD tools, WordPress sites, UI clones, and API projects." />
+  <meta name="keywords" content="Muhammad Muzammil projects, Muhammad Muzammil portfolio, Full Stack Developer projects, React projects, Supabase projects" />
+  <meta property="og:title" content="Projects - Muhammad Muzammil" />
+  <meta property="og:description" content="Search and filter Muhammad Muzammil's full stack developer project portfolio." />
+  <meta property="og:image" content="https://muhammad-muzammil.dev/og-image.jpg" />
+  <meta property="og:url" content="https://muhammad-muzammil.dev/projects.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://muhammad-muzammil.dev/projects.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects - Muhammad Muzammil",
+    "description": "Full stack developer project portfolio by Muhammad Muzammil",
+    "url": "https://muhammad-muzammil.dev/projects.html",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammad Muzammil",
+      "url": "https://muhammad-muzammil.dev/"
+    }
+  }
+  </script>
+  <style>
+    /* ── Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg: #ffffff;
+      --ink: #0a0a0a;
+      --soft: #626262;
+      --faint: #989898;
+      --line: #e9e9e7;
+      --strong: #d7d7d3;
+      --accent: #22c55e;
+      --accent-dark: #15803d;
+      --accent-soft: #e8f9ee;
+      --shadow-sm: 0 8px 24px rgba(10,10,10,.06);
+      --shadow-md: 0 24px 70px rgba(10,10,10,.12);
+      --shadow-lg: 0 42px 120px rgba(10,10,10,.22);
+      --radius: 22px;
+      --max: 1240px;
+      --ease: cubic-bezier(.16,1,.3,1);
+    }
+
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      min-width: 320px;
+      overflow-x: clip;
+      background:
+        radial-gradient(circle at 12% 6%, rgba(34,197,94,.09), transparent 28rem),
+        radial-gradient(circle at 88% 14%, rgba(37,99,235,.06), transparent 28rem),
+        #fff;
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    :focus-visible { outline: 3px solid rgba(34,197,94,.55); outline-offset: 3px; border-radius: 10px; }
+    .wrap { width: min(100% - clamp(32px,5vw,80px), var(--max)); margin: auto; }
+
+    /* ── Nav ───────────────────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 78px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1rem; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(34,197,94,.12); flex-shrink: 0; }
+    .navlinks { display: flex; gap: 22px; align-items: center; }
+    .navlinks a { font-weight: 700; font-size: .9rem; }
+    .pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 42px; border-radius: 999px; padding: 10px 20px;
+      background: var(--ink); color: #fff; font-weight: 800; font-size: .9rem;
+      transition: transform .2s var(--ease), box-shadow .2s;
+    }
+    .pill:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(10,10,10,.18); }
+
+    /* ── Hero ──────────────────────────────────────────── */
+    .hero { padding: clamp(60px,9vw,110px) 0 clamp(40px,5vw,64px); }
+    .eyebrow {
+      color: var(--faint); text-transform: uppercase;
+      letter-spacing: .09em; font: 700 .72rem "JetBrains Mono";
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--faint); }
+    .hero-title {
+      margin-top: 18px;
+      font: 800 clamp(3rem,7.5vw,6.8rem)/.9 "Bricolage Grotesque";
+      letter-spacing: -.01em;
+    }
+    .hero-title .o { color: var(--accent); }
+    .hero-sub {
+      margin-top: 22px; max-width: 620px;
+      color: var(--soft); font-size: clamp(1rem,.96rem + .22vw,1.15rem); line-height: 1.72;
+    }
+    .hero-meta {
+      margin-top: 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+      font-size: .85rem; color: var(--faint); font-family: "JetBrains Mono";
+    }
+    .hero-meta strong { color: var(--ink); font-size: 1.4rem; font-family: "Bricolage Grotesque"; font-weight: 800; display: block; }
+
+    /* ── Controls ──────────────────────────────────────── */
+    .controls-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .field {
+      width: 100%;
+      min-height: 50px;
+      border: 1.5px solid var(--strong);
+      border-radius: 999px;
+      padding: 0 18px 0 44px;
+      background: rgba(255,255,255,.85);
+      box-shadow: var(--shadow-sm);
+      color: var(--ink);
+      font-size: .92rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(34,197,94,.14); outline: none; }
+    select.field { padding: 0 18px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23626262' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+    .filter-btn {
+      border: 1.5px solid var(--line); background: #fff;
+      border-radius: 999px; padding: 9px 16px;
+      font-weight: 700; font-size: .82rem; color: var(--soft);
+      cursor: pointer; transition: all .2s var(--ease);
+    }
+    .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-btn.active { border-color: var(--ink); color: var(--ink); background: var(--accent-soft); }
+
+    /* ── Stacking section ──────────────────────────────── */
+    #stack-section { position: relative; }
+    .stack-intro { padding: 0 0 clamp(32px,4vw,56px); }
+    .stack-intro p { max-width: 480px; color: var(--soft); line-height: 1.7; margin-top: 12px; }
+
+    .stack-container {
+      position: relative;
+      /* height set by JS based on card count */
+    }
+    .stack-pin-wrap {
+      position: sticky;
+      top: 78px; /* nav height */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .stack-cards {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      height: clamp(480px, 56vh, 640px);
+    }
+    .scard {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+      will-change: transform, opacity;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transform-origin: top center;
+      cursor: pointer;
+      transition: border-color .3s;
+    }
+    .scard:hover { border-color: rgba(10,10,10,.35); }
+
+    /* Thumbnail pane */
+    .scard-thumb {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #111827, #0f172a 55%, #064e3b);
+    }
+    .scard-thumb svg { width: 100%; height: 100%; display: block; }
+    .scard-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 60%, rgba(0,0,0,.3));
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .35s;
+    }
+    .scard:hover .scard-thumb::after { opacity: 1; }
+    .scard-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s var(--ease);
+    }
+    .scard:hover .scard-thumb-img { transform: scale(1.04); }
+
+    /* Light effect overlay */
+    .scard-light {
+      position: absolute;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,197,94,.35), transparent 70%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s;
+      transform: translate(-50%,-50%);
+      top: var(--ly, 50%);
+      left: var(--lx, 50%);
+    }
+    .scard:hover .scard-light { opacity: 1; }
+
+    /* Content pane */
+    .scard-body {
+      padding: clamp(24px,3.5vw,40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .scard-top {}
+    .scard-cat {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-soft); color: var(--accent-dark);
+      border-radius: 999px; padding: 5px 12px;
+      font: 700 .72rem "JetBrains Mono"; text-transform: uppercase; letter-spacing: .05em;
+    }
+    .scard-cat::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .scard-num {
+      font: 700 .72rem "JetBrains Mono";
+      color: var(--faint);
+      margin-top: 20px;
+    }
+    .scard-title {
+      margin-top: 10px;
+      font: 800 clamp(1.45rem,2.4vw,2rem)/1.05 "Bricolage Grotesque";
+      letter-spacing: -.01em;
+    }
+    .scard-desc {
+      margin-top: 14px;
+      color: var(--soft);
+      line-height: 1.68;
+      font-size: .92rem;
+    }
+    .scard-stack {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 18px;
+    }
+    .scard-stack span {
+      border: 1px solid var(--line); border-radius: 8px;
+      padding: 4px 9px; color: var(--soft);
+      font: 500 .7rem "JetBrains Mono";
+    }
+    .scard-actions {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 24px;
+      transform: translateY(6px);
+      opacity: 0;
+      transition: transform .3s var(--ease), opacity .3s;
+    }
+    .scard:hover .scard-actions { transform: translateY(0); opacity: 1; }
+    .scard-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      min-height: 40px; border-radius: 999px;
+      padding: 9px 16px;
+      font-weight: 700; font-size: .8rem;
+      border: 1.5px solid var(--strong);
+      background: #fff; color: var(--ink);
+      cursor: pointer;
+      transition: all .22s var(--ease);
+    }
+    .scard-btn.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .scard-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(10,10,10,.14); }
+    .scard-btn svg { flex-shrink: 0; }
+    .scard-arrow {
+      transition: transform .22s var(--ease);
+    }
+    .scard-btn:hover .scard-arrow { transform: translate(3px,-3px); }
+
+    /* Stack index indicator */
+    .stack-nav {
+      position: absolute;
+      right: -52px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .stack-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--strong);
+      transition: background .3s, transform .3s;
+    }
+    .stack-dot.active { background: var(--accent); transform: scale(1.5); }
+
+    /* ── Grid section (search results) ─────────────────── */
+    #grid-section { padding: clamp(64px,8vw,100px) 0; }
+    .section-label {
+      font: 700 .72rem "JetBrains Mono"; color: var(--faint);
+      text-transform: uppercase; letter-spacing: .09em;
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::before { content: ''; width: 22px; height: 1px; background: var(--faint); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+    .gcard {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s;
+      cursor: pointer;
+    }
+    .gcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(10,10,10,.3); }
+    .gcard-thumb {
+      height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gcard-thumb svg { width: 100%; height: 100%; display: block; }
+    .gcard-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.35));
+    }
+    .gcard-body { padding: 20px; }
+    .gcard-cat {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--accent-soft); color: var(--accent-dark);
+      border-radius: 999px; padding: 4px 10px;
+      font: 700 .68rem "JetBrains Mono";
+    }
+    .gcard-title { margin-top: 12px; font: 700 1.08rem/1.1 "Bricolage Grotesque"; }
+    .gcard-desc { margin-top: 8px; color: var(--soft); font-size: .84rem; line-height: 1.65; }
+    .gcard-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+    .gcard-stack span {
+      border: 1px solid var(--line); border-radius: 7px;
+      padding: 3px 7px; color: var(--soft);
+      font: 500 .67rem "JetBrains Mono";
+    }
+    .gcard-actions { display: flex; gap: 8px; margin-top: 16px; }
+    .glink {
+      display: inline-flex; align-items: center; gap: 5px;
+      border: 1.5px solid var(--strong); border-radius: 999px;
+      padding: 7px 13px; font-weight: 700; font-size: .76rem;
+      transition: all .2s var(--ease);
+    }
+    .glink:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .glink.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .glink.primary:hover { background: #333; }
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 56px 32px;
+      text-align: center;
+      border: 1.5px dashed var(--strong);
+      border-radius: var(--radius);
+      color: var(--soft);
+    }
+    .empty-state strong { display: block; font: 700 1.1rem "Bricolage Grotesque"; color: var(--ink); margin-bottom: 8px; }
+    .load-more {
+      display: flex; justify-content: center; margin-top: 40px;
+    }
+    .hidden { display: none !important; }
+
+    /* ── Footer ────────────────────────────────────────── */
+    footer { padding: 40px 0 56px; border-top: 1px solid var(--line); color: var(--faint); font-size: .86rem; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* ── Reduced motion ────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .navlinks a:not(.pill) { display: none; }
+      .scard { grid-template-columns: 1fr; }
+      .scard-thumb { height: 200px; }
+      .controls-bar { grid-template-columns: 1fr; }
+      .stack-nav { display: none; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .scard-actions { opacity: 1; transform: none; }
+    }
+    @media (max-width: 375px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────── -->
+<header>
+  <div class="wrap">
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <span class="dot"></span>
+        Muhammad Muzammil
+      </a>
+      <div class="navlinks">
+        <a href="index.html#work">Home</a>
+        <a href="blogs.html">Blog</a>
+        <a class="pill" href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────── -->
+<main>
+  <section class="hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <div class="eyebrow">All projects</div>
+      <h1 class="hero-title" id="page-title">
+        Work that <span class="o">ships</span>.
+      </h1>
+      <p class="hero-sub">
+        A curated showcase of Muhammad Muzammil's full stack projects —
+        from React interfaces and Supabase backends to WordPress systems and hardware prototypes.
+      </p>
+      <div class="hero-meta">
+        <div><strong>8</strong>projects</div>
+        <div><strong>5+</strong>tech stacks</div>
+        <div><strong>3</strong>live products</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Search + Filter (shown above grid only) ──────── -->
+  <section id="grid-section" aria-labelledby="browse-label">
+    <div class="wrap">
+      <div class="controls-bar">
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="5" stroke="#989898" stroke-width="1.5"/>
+            <path d="M11 11l3 3" stroke="#989898" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input class="field" id="search" type="search" placeholder="Search projects, stack, descriptions…" aria-label="Search projects" />
+        </div>
+        <select class="field" id="sort" aria-label="Sort projects" style="min-width:172px">
+          <option value="featured">Featured first</option>
+          <option value="az">A → Z</option>
+        </select>
+      </div>
+      <div class="filter-row" id="filters" aria-label="Filter by category" role="group"></div>
+      <p class="section-label" id="browse-label">Browse all</p>
+      <div class="grid" id="grid" aria-live="polite" aria-atomic="true"></div>
+      <div class="load-more"><button class="pill" id="loadMore" type="button">Load more projects</button></div>
+    </div>
+  </section>
+
+  <!-- ── Apple-style Stacking Section ─────────────────── -->
+  <section id="stack-section" aria-label="Featured projects showcase">
+    <div class="wrap">
+      <div class="stack-intro">
+        <div class="eyebrow">Featured work</div>
+        <h2 style="font:800 clamp(2rem,4vw,3.5rem)/1.05 'Bricolage Grotesque'; margin-top:14px;">Scroll through highlights.</h2>
+        <p>Four hand-picked projects. Scroll to stack through them.</p>
+      </div>
+    </div>
+    <div class="stack-container" id="stackContainer">
+      <div class="stack-pin-wrap" id="stackPin">
+        <div class="wrap" style="position:relative;width:100%">
+          <div class="stack-cards" id="stackCards">
+            <!-- JS inserts cards -->
+          </div>
+          <div class="stack-nav" id="stackNav" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Muhammad Muzammil</div>
+    <div>Full Stack Developer · Karachi</div>
+  </div>
+</footer>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- SVG Thumbnails as inline JS strings                           -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<script>
+/* ── SVG placeholder illustrations per project ─────────── */
+const THUMBS = {
+  hospital: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <rect width="420" height="280" fill="#0f172a"/>
+    <rect x="0" y="0" width="420" height="280" fill="url(#hg)"/>
+    <defs>
+      <linearGradient id="hg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#0f172a"/>
+        <stop offset="100%" stop-color="#064e3b"/>
+      </linearGradient>
+    </defs>
+    <!-- sidebar -->
+    <rect x="8" y="8" width="72" height="264" rx="10" fill="rgba(255,255,255,.06)"/>
+    <circle cx="44" cy="36" r="14" fill="rgba(34,197,94,.25)"/>
+    <text x="44" y="41" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="700">+</text>
+    <rect x="18" y="60" width="52" height="6" rx="3" fill="rgba(255,255,255,.15)"/>
+    <rect x="18" y="76" width="40" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+    <rect x="18" y="92" width="46" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+    <rect x="18" y="108" width="38" height="6" rx="3" fill="rgba(255,255,255,.08)"/>
+    <!-- main area -->
+    <rect x="88" y="8" width="324" height="36" rx="8" fill="rgba(255,255,255,.06)"/>
+    <rect x="100" y="19" width="80" height="14" rx="4" fill="rgba(255,255,255,.15)"/>
+    <!-- stat cards -->
+    <rect x="88" y="52" width="74" height="56" rx="8" fill="rgba(34,197,94,.14)"/>
+    <text x="125" y="78" text-anchor="middle" fill="#22c55e" font-size="16" font-weight="800">248</text>
+    <text x="125" y="96" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="8">Patients</text>
+    <rect x="170" y="52" width="74" height="56" rx="8" fill="rgba(37,99,235,.14)"/>
+    <text x="207" y="78" text-anchor="middle" fill="#60a5fa" font-size="16" font-weight="800">34</text>
+    <text x="207" y="96" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="8">Staff</text>
+    <rect x="252" y="52" width="74" height="56" rx="8" fill="rgba(168,85,247,.14)"/>
+    <text x="289" y="78" text-anchor="middle" fill="#c084fc" font-size="16" font-weight="800">12</text>
+    <text x="289" y="96" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="8">Wards</text>
+    <rect x="334" y="52" width="78" height="56" rx="8" fill="rgba(251,191,36,.14)"/>
+    <text x="373" y="78" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="800">99%</text>
+    <text x="373" y="96" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="8">Uptime</text>
+    <!-- chart area -->
+    <rect x="88" y="116" width="196" height="104" rx="8" fill="rgba(255,255,255,.04)"/>
+    <polyline points="100,200 120,175 140,185 160,155 180,162 200,140 220,148 240,132 260,140 270,130" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="100,200 120,175 140,185 160,155 180,162 200,140 220,148 240,132 260,140 270,130" fill="none" stroke="rgba(34,197,94,.2)" stroke-width="14" stroke-linecap="round"/>
+    <!-- table -->
+    <rect x="292" y="116" width="120" height="104" rx="8" fill="rgba(255,255,255,.04)"/>
+    <rect x="298" y="124" width="108" height="14" rx="3" fill="rgba(255,255,255,.08)"/>
+    <rect x="298" y="144" width="108" height="10" rx="3" fill="rgba(255,255,255,.05)"/>
+    <rect x="298" y="158" width="108" height="10" rx="3" fill="rgba(255,255,255,.05)"/>
+    <rect x="298" y="172" width="90" height="10" rx="3" fill="rgba(255,255,255,.05)"/>
+    <rect x="298" y="186" width="108" height="10" rx="3" fill="rgba(255,255,255,.05)"/>
+    <!-- bottom bar -->
+    <rect x="88" y="228" width="324" height="44" rx="8" fill="rgba(255,255,255,.04)"/>
+    <rect x="100" y="240" width="60" height="8" rx="3" fill="rgba(255,255,255,.12)"/>
+    <rect x="100" y="254" width="40" height="5" rx="2" fill="rgba(255,255,255,.07)"/>
+  </svg>`,
+
+  atlas: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <radialGradient id="ag" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1e3a5f"/>
+        <stop offset="100%" stop-color="#0a1628"/>
+      </radialGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#ag)"/>
+    <!-- globe grid lines -->
+    <ellipse cx="210" cy="140" rx="110" ry="110" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+    <ellipse cx="210" cy="140" rx="90" ry="110" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <ellipse cx="210" cy="140" rx="55" ry="110" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <ellipse cx="210" cy="140" rx="110" ry="80" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <ellipse cx="210" cy="140" rx="110" ry="44" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <line x1="100" y1="140" x2="320" y2="140" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+    <!-- continents -->
+    <path d="M155 100 Q170 90 185 95 Q200 88 210 98 Q220 92 235 100 Q250 105 245 118 Q255 125 248 135 Q240 145 228 140 Q215 148 205 138 Q192 145 180 136 Q165 130 162 118 Z" fill="rgba(34,197,94,.4)" opacity=".8"/>
+    <path d="M145 130 Q158 122 168 130 Q175 140 165 150 Q152 155 145 145 Z" fill="rgba(34,197,94,.35)" opacity=".7"/>
+    <path d="M255 90 Q272 85 280 95 Q288 107 278 115 Q265 118 258 108 Z" fill="rgba(34,197,94,.35)" opacity=".7"/>
+    <path d="M270 130 Q284 125 292 135 Q298 148 286 154 Q272 157 268 145 Z" fill="rgba(34,197,94,.3)" opacity=".6"/>
+    <!-- pin -->
+    <circle cx="218" cy="118" r="6" fill="#22c55e"/>
+    <circle cx="218" cy="118" r="10" fill="rgba(34,197,94,.25)"/>
+    <circle cx="218" cy="118" r="14" fill="rgba(34,197,94,.12)"/>
+    <!-- search bar overlay -->
+    <rect x="88" y="12" width="244" height="36" rx="18" fill="rgba(255,255,255,.9)"/>
+    <text x="186" y="35" fill="#626262" font-size="12" font-family="Inter">Search countries…</text>
+    <!-- flag cards -->
+    <rect x="12" y="140" width="64" height="40" rx="8" fill="rgba(255,255,255,.12)"/>
+    <rect x="14" y="142" width="60" height="22" rx="5" fill="rgba(37,99,235,.6)"/>
+    <text x="44" y="196" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="8">Germany</text>
+    <rect x="82" y="140" width="64" height="40" rx="8" fill="rgba(255,255,255,.12)"/>
+    <rect x="84" y="142" width="60" height="22" rx="5" fill="rgba(220,50,50,.6)"/>
+    <text x="114" y="196" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="8">Japan</text>
+    <rect x="12" y="190" width="134" height="44" rx="8" fill="rgba(255,255,255,.07)"/>
+    <text x="79" y="212" text-anchor="middle" fill="rgba(255,255,255,.6)" font-size="9" font-weight="700">Population</text>
+    <text x="79" y="228" text-anchor="middle" fill="#22c55e" font-size="13" font-weight="800">83.2M</text>
+  </svg>`,
+
+  quiz: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="qg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1e1b4b"/>
+        <stop offset="100%" stop-color="#0f172a"/>
+      </linearGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#qg)"/>
+    <!-- progress bar -->
+    <rect x="24" y="20" width="372" height="8" rx="4" fill="rgba(255,255,255,.08)"/>
+    <rect x="24" y="20" width="185" height="8" rx="4" fill="#22c55e"/>
+    <text x="24" y="44" fill="rgba(255,255,255,.45)" font-size="9" font-family="JetBrains Mono">Question 5 of 10</text>
+    <text x="396" y="44" text-anchor="end" fill="rgba(255,255,255,.45)" font-size="9" font-family="JetBrains Mono">02:18</text>
+    <!-- question card -->
+    <rect x="24" y="54" width="372" height="68" rx="12" fill="rgba(255,255,255,.07)"/>
+    <text x="210" y="80" text-anchor="middle" fill="rgba(255,255,255,.85)" font-size="13" font-weight="700" font-family="Bricolage Grotesque">What is the time complexity of</text>
+    <text x="210" y="100" text-anchor="middle" fill="#22c55e" font-size="15" font-weight="800" font-family="JetBrains Mono">Binary Search?</text>
+    <!-- options -->
+    <rect x="24" y="132" width="176" height="38" rx="10" fill="rgba(255,255,255,.07)"/>
+    <text x="112" y="156" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="12" font-family="JetBrains Mono">O(n)</text>
+    <rect x="220" y="132" width="176" height="38" rx="10" fill="rgba(34,197,94,.2)" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="308" y="156" text-anchor="middle" fill="#22c55e" font-size="12" font-family="JetBrains Mono">O(log n) ✓</text>
+    <rect x="24" y="178" width="176" height="38" rx="10" fill="rgba(255,255,255,.07)"/>
+    <text x="112" y="202" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="12" font-family="JetBrains Mono">O(n²)</text>
+    <rect x="220" y="178" width="176" height="38" rx="10" fill="rgba(255,255,255,.07)"/>
+    <text x="308" y="202" text-anchor="middle" fill="rgba(255,255,255,.7)" font-size="12" font-family="JetBrains Mono">O(1)</text>
+    <!-- score strip -->
+    <rect x="24" y="228" width="372" height="40" rx="10" fill="rgba(255,255,255,.05)"/>
+    <text x="44" y="252" fill="rgba(255,255,255,.5)" font-size="9">Score</text>
+    <text x="44" y="262" fill="#22c55e" font-size="11" font-weight="800">420 pts</text>
+    <circle cx="380" cy="248" r="16" fill="rgba(34,197,94,.2)"/>
+    <text x="380" y="253" text-anchor="middle" fill="#22c55e" font-size="12" font-weight="800">→</text>
+  </svg>`,
+
+  supabase: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="sg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#0f1b35"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#sg)"/>
+    <!-- upload zone -->
+    <rect x="20" y="12" width="240" height="110" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(34,197,94,.3)" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="140" y="52" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="28">↑</text>
+    <text x="140" y="76" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="11">Drop files or click to upload</text>
+    <rect x="60" y="90" width="160" height="24" rx="12" fill="rgba(34,197,94,.18)"/>
+    <text x="140" y="106" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">Choose Files</text>
+    <!-- file list -->
+    <rect x="20" y="132" width="240" height="136" rx="12" fill="rgba(255,255,255,.04)"/>
+    <rect x="30" y="144" width="220" height="28" rx="7" fill="rgba(255,255,255,.07)"/>
+    <rect x="38" y="152" width="16" height="12" rx="3" fill="#22c55e" opacity=".7"/>
+    <text x="62" y="162" fill="rgba(255,255,255,.7)" font-size="9">report_q3.pdf</text>
+    <text x="238" y="162" text-anchor="end" fill="rgba(255,255,255,.35)" font-size="8">2.4 MB</text>
+    <rect x="30" y="178" width="220" height="28" rx="7" fill="rgba(255,255,255,.04)"/>
+    <rect x="38" y="186" width="16" height="12" rx="3" fill="#3b82f6" opacity=".7"/>
+    <text x="62" y="196" fill="rgba(255,255,255,.5)" font-size="9">hero-image.png</text>
+    <text x="238" y="196" text-anchor="end" fill="rgba(255,255,255,.25)" font-size="8">840 KB</text>
+    <rect x="30" y="212" width="220" height="28" rx="7" fill="rgba(255,255,255,.04)"/>
+    <rect x="38" y="220" width="16" height="12" rx="3" fill="#f59e0b" opacity=".7"/>
+    <text x="62" y="230" fill="rgba(255,255,255,.5)" font-size="9">data-export.csv</text>
+    <text x="238" y="230" text-anchor="end" fill="rgba(255,255,255,.25)" font-size="8">61 KB</text>
+    <!-- preview panel -->
+    <rect x="270" y="12" width="138" height="256" rx="12" fill="rgba(255,255,255,.04)"/>
+    <text x="339" y="36" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="9" font-weight="700">PREVIEW</text>
+    <rect x="282" y="46" width="114" height="72" rx="7" fill="rgba(255,255,255,.07)"/>
+    <text x="339" y="88" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="24">PDF</text>
+    <rect x="282" y="128" width="114" height="10" rx="3" fill="rgba(255,255,255,.08)"/>
+    <rect x="282" y="144" width="90" height="6" rx="3" fill="rgba(255,255,255,.05)"/>
+    <rect x="282" y="156" width="106" height="6" rx="3" fill="rgba(255,255,255,.05)"/>
+    <rect x="282" y="200" width="52" height="22" rx="11" fill="rgba(34,197,94,.2)"/>
+    <text x="308" y="215" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="700">Copy URL</text>
+    <rect x="340" y="200" width="52" height="22" rx="11" fill="rgba(255,255,255,.07)"/>
+    <text x="366" y="215" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="9" font-weight="700">Delete</text>
+  </svg>`,
+
+  smit: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <rect width="420" height="280" fill="#0a0a0a"/>
+    <rect x="0" y="0" width="420" height="56" fill="rgba(255,255,255,.05)"/>
+    <rect x="16" y="18" width="80" height="20" rx="5" fill="rgba(34,197,94,.4)"/>
+    <text x="56" y="33" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">SMIT</text>
+    <rect x="130" y="22" width="40" height="12" rx="3" fill="rgba(255,255,255,.1)"/>
+    <rect x="178" y="22" width="40" height="12" rx="3" fill="rgba(255,255,255,.1)"/>
+    <rect x="226" y="22" width="40" height="12" rx="3" fill="rgba(255,255,255,.1)"/>
+    <rect x="340" y="16" width="70" height="24" rx="12" fill="rgba(34,197,94,.2)" stroke="#22c55e" stroke-width="1"/>
+    <text x="375" y="32" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">Apply Now</text>
+    <rect x="0" y="56" width="420" height="130" fill="rgba(255,255,255,.02)"/>
+    <text x="210" y="100" text-anchor="middle" fill="rgba(255,255,255,.85)" font-size="20" font-weight="800" font-family="Bricolage Grotesque">Saylani Mass IT Training</text>
+    <text x="210" y="124" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="11">Free IT education for all</text>
+    <rect x="144" y="138" width="132" height="34" rx="17" fill="#22c55e"/>
+    <text x="210" y="159" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">Enroll Today →</text>
+    <rect x="0" y="186" width="420" height="94" fill="rgba(255,255,255,.02)"/>
+    <rect x="24" y="202" width="100" height="62" rx="8" fill="rgba(255,255,255,.04)"/>
+    <rect x="136" y="202" width="100" height="62" rx="8" fill="rgba(255,255,255,.04)"/>
+    <rect x="248" y="202" width="100" height="62" rx="8" fill="rgba(255,255,255,.04)"/>
+    <text x="74" y="238" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="9">Web Dev</text>
+    <text x="186" y="238" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="9">Graphic Design</text>
+    <text x="298" y="238" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="9">Mobile Apps</text>
+  </svg>`,
+
+  wordpress: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="wg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1a1a2e"/>
+        <stop offset="100%" stop-color="#16213e"/>
+      </linearGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#wg)"/>
+    <rect x="0" y="0" width="90" height="280" fill="rgba(255,255,255,.03)"/>
+    <circle cx="45" cy="32" r="18" fill="rgba(33,150,243,.2)"/>
+    <text x="45" y="38" text-anchor="middle" fill="#2196f3" font-size="16" font-weight="800">W</text>
+    <rect x="14" y="64" width="62" height="8" rx="4" fill="rgba(255,255,255,.1)"/>
+    <rect x="14" y="80" width="50" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
+    <rect x="14" y="96" width="56" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
+    <rect x="14" y="112" width="44" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
+    <rect x="14" y="128" width="60" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
+    <rect x="100" y="8" width="312" height="44" rx="8" fill="rgba(255,255,255,.04)"/>
+    <rect x="112" y="18" width="100" height="12" rx="4" fill="rgba(255,255,255,.1)"/>
+    <rect x="350" y="16" width="54" height="28" rx="8" fill="rgba(34,197,94,.2)"/>
+    <text x="377" y="34" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="800">+ New Post</text>
+    <rect x="100" y="60" width="200" height="110" rx="10" fill="rgba(255,255,255,.04)"/>
+    <rect x="112" y="72" width="140" height="14" rx="4" fill="rgba(255,255,255,.15)"/>
+    <rect x="112" y="92" width="176" height="7" rx="3" fill="rgba(255,255,255,.07)"/>
+    <rect x="112" y="104" width="160" height="7" rx="3" fill="rgba(255,255,255,.07)"/>
+    <rect x="112" y="116" width="172" height="7" rx="3" fill="rgba(255,255,255,.07)"/>
+    <rect x="112" y="128" width="148" height="7" rx="3" fill="rgba(255,255,255,.07)"/>
+    <rect x="112" y="144" width="60" height="18" rx="9" fill="rgba(34,197,94,.2)"/>
+    <text x="142" y="157" text-anchor="middle" fill="#22c55e" font-size="8" font-weight="700">Publish</text>
+    <rect x="310" y="60" width="102" height="110" rx="10" fill="rgba(255,255,255,.04)"/>
+    <text x="361" y="84" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="8">Status</text>
+    <rect x="318" y="92" width="86" height="16" rx="4" fill="rgba(255,255,255,.06)"/>
+    <text x="361" y="104" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="8">SEO Score</text>
+    <rect x="318" y="112" width="86" height="8" rx="4" fill="rgba(34,197,94,.12)"/>
+    <rect x="318" y="112" width="70" height="8" rx="4" fill="rgba(34,197,94,.5)"/>
+    <text x="361" y="145" text-anchor="middle" fill="#22c55e" font-size="12" font-weight="800">82 / 100</text>
+    <rect x="100" y="180" width="312" height="90" rx="10" fill="rgba(255,255,255,.03)"/>
+    <rect x="112" y="192" width="88" height="66" rx="7" fill="rgba(255,255,255,.06)"/>
+    <rect x="208" y="192" width="88" height="66" rx="7" fill="rgba(255,255,255,.06)"/>
+    <rect x="304" y="192" width="96" height="66" rx="7" fill="rgba(255,255,255,.06)"/>
+  </svg>`,
+
+  firebase: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="fg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1a0533"/>
+        <stop offset="100%" stop-color="#0d0d1a"/>
+      </linearGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#fg)"/>
+    <!-- login card -->
+    <rect x="110" y="30" width="200" height="220" rx="16" fill="rgba(255,255,255,.06)"/>
+    <circle cx="210" cy="72" r="24" fill="rgba(251,146,60,.2)"/>
+    <text x="210" y="79" text-anchor="middle" fill="#fb923c" font-size="20" font-weight="800">🔥</text>
+    <text x="210" y="116" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="13" font-weight="700" font-family="Bricolage Grotesque">Welcome Back</text>
+    <rect x="126" y="128" width="168" height="28" rx="7" fill="rgba(255,255,255,.08)"/>
+    <text x="142" y="146" fill="rgba(255,255,255,.3)" font-size="9">Email address</text>
+    <rect x="126" y="162" width="168" height="28" rx="7" fill="rgba(255,255,255,.08)"/>
+    <text x="142" y="180" fill="rgba(255,255,255,.3)" font-size="9">Password</text>
+    <rect x="126" y="198" width="168" height="30" rx="15" fill="rgba(251,146,60,.8)"/>
+    <text x="210" y="217" text-anchor="middle" fill="#fff" font-size="10" font-weight="800">Sign In →</text>
+    <text x="210" y="244" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="8">Protected by Firebase Auth</text>
+    <!-- decorative glows -->
+    <circle cx="80" cy="80" r="40" fill="rgba(251,146,60,.06)"/>
+    <circle cx="340" cy="200" r="50" fill="rgba(168,85,247,.06)"/>
+  </svg>`,
+
+  arduino: `<svg viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="arg" x1="0" y1="0" x2="420" y2="280" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#0a1a0a"/>
+        <stop offset="100%" stop-color="#001a10"/>
+      </linearGradient>
+    </defs>
+    <rect width="420" height="280" fill="url(#arg)"/>
+    <!-- PCB board -->
+    <rect x="60" y="50" width="300" height="180" rx="12" fill="rgba(0,80,40,.4)" stroke="rgba(34,197,94,.2)" stroke-width="1.5"/>
+    <!-- circuit traces -->
+    <path d="M80 90 H180 V140 H280 V90" fill="none" stroke="rgba(34,197,94,.3)" stroke-width="2"/>
+    <path d="M80 200 H150 V160 H270 V200 H350" fill="none" stroke="rgba(34,197,94,.25)" stroke-width="1.5"/>
+    <path d="M200 60 V90" fill="none" stroke="rgba(34,197,94,.25)" stroke-width="1.5"/>
+    <!-- Arduino chip -->
+    <rect x="160" y="106" width="100" height="68" rx="6" fill="#1a472a" stroke="rgba(34,197,94,.5)" stroke-width="1.5"/>
+    <text x="210" y="138" text-anchor="middle" fill="#22c55e" font-size="9" font-weight="800">ATMEGA</text>
+    <text x="210" y="152" text-anchor="middle" fill="rgba(34,197,94,.6)" font-size="8">328P</text>
+    <!-- pins -->
+    <rect x="80" y="82" width="8" height="16" rx="2" fill="rgba(34,197,94,.4)"/>
+    <rect x="96" y="82" width="8" height="16" rx="2" fill="rgba(34,197,94,.4)"/>
+    <rect x="112" y="82" width="8" height="16" rx="2" fill="rgba(34,197,94,.4)"/>
+    <rect x="128" y="82" width="8" height="16" rx="2" fill="rgba(34,197,94,.4)"/>
+    <!-- LED indicators -->
+    <circle cx="300" cy="100" r="7" fill="rgba(34,197,94,.8)"/>
+    <circle cx="300" cy="100" r="12" fill="rgba(34,197,94,.15)"/>
+    <circle cx="320" cy="100" r="7" fill="rgba(251,146,60,.5)"/>
+    <circle cx="340" cy="100" r="7" fill="rgba(37,99,235,.5)"/>
+    <!-- sensor labels -->
+    <rect x="80" y="190" width="60" height="24" rx="5" fill="rgba(255,255,255,.06)"/>
+    <text x="110" y="205" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="7">TEMP</text>
+    <rect x="150" y="190" width="60" height="24" rx="5" fill="rgba(255,255,255,.06)"/>
+    <text x="180" y="205" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="7">HUMIDITY</text>
+    <rect x="220" y="190" width="60" height="24" rx="5" fill="rgba(255,255,255,.06)"/>
+    <text x="250" y="205" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="7">MOTION</text>
+    <!-- output bar at bottom -->
+    <rect x="20" y="238" width="380" height="32" rx="8" fill="rgba(0,0,0,.4)"/>
+    <text x="36" y="258" fill="rgba(34,197,94,.7)" font-size="9" font-family="JetBrains Mono">$ Serial &gt; Temp: 27.4°C · Humidity: 61% · Motion: OFF</text>
+  </svg>`
+};
+
+/* ── Project data ──────────────────────────────────────── */
+const projects = [
+  {
+    id: 'hospital',
+    name: 'Hospital Management System',
+    cat: 'UI',
+    stack: ['React', 'Tailwind', 'UI/UX'],
+    desc: 'Desktop-oriented admin UI for patients, staff, records, statistics, and clinical workflows — built for real institutional scale.',
+    live: '#',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: './hospitalManagementSSystem.html',
+    featured: true,
+    thumb: 'hospital'
+  },
+  {
+    id: 'supabase',
+    name: 'Supabase Storage CRUD',
+    cat: 'Full Stack',
+    stack: ['Next.js', 'Supabase', 'Storage API'],
+    desc: 'Storage manager with uploads, previews, file actions, and clean GitHub-inspired UX. Handles bucket CRUD with real-time feedback.',
+    live: '#',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/supabase-storage.html',
+    featured: true,
+    thumb: 'supabase'
+  },
+  {
+    id: 'atlas',
+    name: 'WorldAtlas',
+    cat: 'Live',
+    stack: ['React', 'REST API', 'Netlify'],
+    desc: 'Country explorer with search, region filters, and REST Countries API detail views. Fully live on Netlify.',
+    live: 'https://worldatlas-website.netlify.app',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/world-atlas.html',
+    featured: true,
+    thumb: 'atlas'
+  },
+  {
+    id: 'quiz',
+    name: 'AI Quiz Platform',
+    cat: 'Live',
+    stack: ['JavaScript', 'CSS', 'Netlify'],
+    desc: 'Quiz app with category selection, timed rounds, score tracking, and animated result screens. Deployed and battle-tested.',
+    live: 'https://quizapplicationmuzammil.netlify.app',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/ai-quiz.html',
+    featured: true,
+    thumb: 'quiz'
+  },
+  {
+    id: 'smit',
+    name: 'SMIT Website Clone',
+    cat: 'Frontend',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    desc: 'Responsive frontend clone focused on spacing, layout precision, and deployment. A meticulous pixel exercise.',
+    live: 'https://smitwebsiteclone.netlify.app',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/smit-clone.html',
+    featured: false,
+    thumb: 'smit'
+  },
+  {
+    id: 'wordpress',
+    name: 'WordPress Blog System',
+    cat: 'CMS',
+    stack: ['WordPress', 'Elementor', 'SEO'],
+    desc: 'SEO-ready blog layouts with Elementor, performance tuning, and readable content structure built for long-term growth.',
+    live: '#',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/wordpress-blog.html',
+    featured: false,
+    thumb: 'wordpress'
+  },
+  {
+    id: 'firebase',
+    name: 'Firebase Auth Dashboard',
+    cat: 'Full Stack',
+    stack: ['Firebase', 'JavaScript', 'Auth'],
+    desc: 'Authentication and dashboard flow with protected screens and persistent user state — a complete auth-first architecture.',
+    live: '#',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/firebase-auth.html',
+    featured: false,
+    thumb: 'firebase'
+  },
+  {
+    id: 'arduino',
+    name: 'Arduino Smart Utility',
+    cat: 'Hardware',
+    stack: ['Arduino', 'C++', 'Sensors'],
+    desc: 'Hardware-side experiment connecting sensors and embedded logic — a bridge between physical systems and developer thinking.',
+    live: '#',
+    github: 'https://github.com/MuhammadMuzammil-TheDeveloper',
+    page: 'projects/arduino-utility.html',
+    featured: false,
+    thumb: 'arduino'
+  }
+];
+
+/* ── Filter UI ───────────────────────────────────────── */
+const cats = ['All', ...new Set(projects.map(p => p.cat))];
+let activeFilter = 'All', shown = 6;
+
+const filtersEl = document.getElementById('filters');
+const gridEl = document.getElementById('grid');
+const searchEl = document.getElementById('search');
+const sortEl = document.getElementById('sort');
+const loadMoreEl = document.getElementById('loadMore');
+
+cats.forEach(c => {
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn' + (c === 'All' ? ' active' : '');
+  btn.textContent = c;
+  btn.type = 'button';
+  btn.setAttribute('aria-pressed', c === 'All' ? 'true' : 'false');
+  btn.onclick = () => {
+    activeFilter = c; shown = 6;
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    renderGrid();
+  };
+  filtersEl.appendChild(btn);
+});
+
+/* ── Grid card HTML ──────────────────────────────────── */
+function gCardHTML(p) {
+  const live = p.live !== '#';
+  return `<article class="gcard" role="article" tabindex="0"
+    onclick="window.location='${p.page}'"
+    onkeydown="if(event.key==='Enter')window.location='${p.page}'">
+    <div class="gcard-thumb">${THUMBS[p.thumb]||THUMBS.smit}</div>
+    <div class="gcard-body">
+      <span class="gcard-cat">${p.cat}</span>
+      <h3 class="gcard-title">${p.name}</h3>
+      <p class="gcard-desc">${p.desc}</p>
+      <div class="gcard-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
+      <div class="gcard-actions">
+        <a class="glink primary" href="${p.page}">Case Study</a>
+        ${live ? `<a class="glink" href="${p.live}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Live ↗</a>` : ''}
+        <a class="glink" href="${p.github}" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ── Render grid ─────────────────────────────────────── */
+function renderGrid() {
+  const q = searchEl.value.trim().toLowerCase();
+  let list = projects.filter(p =>
+    (activeFilter === 'All' || p.cat === activeFilter) &&
+    [p.name, p.cat, p.desc, ...p.stack].join(' ').toLowerCase().includes(q)
+  );
+  if (sortEl.value === 'az') list.sort((a,b) => a.name.localeCompare(b.name));
+  else list.sort((a,b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+  if (!list.length) {
+    gridEl.innerHTML = `<div class="empty-state"><strong>No projects found</strong>Try a different search or filter.</div>`;
+  } else {
+    gridEl.innerHTML = list.slice(0, shown).map(gCardHTML).join('');
+    // Stagger animate new cards
+    if (window.gsap) {
+      gsap.from('.gcard', { y: 22, opacity: 0, duration: .5, stagger: .06, ease: 'power3.out', clearProps: 'all' });
+    }
+  }
+  loadMoreEl.classList.toggle('hidden', shown >= list.length);
+}
+
+searchEl.addEventListener('input', () => { shown = 6; renderGrid(); });
+sortEl.addEventListener('change', renderGrid);
+loadMoreEl.addEventListener('click', () => { shown += 3; renderGrid(); });
+renderGrid();
+
+/* ── Stacking cards ──────────────────────────────────── */
+const featured = projects.filter(p => p.featured);
+const stackCards = document.getElementById('stackCards');
+const stackNav = document.getElementById('stackNav');
+const stackContainer = document.getElementById('stackContainer');
+
+/* Build cards bottom-to-top (last in DOM = topmost) */
+featured.forEach((p, i) => {
+  const card = document.createElement('article');
+  card.className = 'scard';
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-label', `Project: ${p.name}`);
+  card.innerHTML = `
+    <div class="scard-thumb">${THUMBS[p.thumb]||THUMBS.smit}<div class="scard-light"></div></div>
+    <div class="scard-body">
+      <div class="scard-top">
+        <span class="scard-cat">${p.cat}</span>
+        <div class="scard-num">0${i+1} / 0${featured.length}</div>
+        <h2 class="scard-title">${p.name}</h2>
+        <p class="scard-desc">${p.desc}</p>
+        <div class="scard-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
+      </div>
+      <div class="scard-actions">
+        <a class="scard-btn primary" href="${p.page}">
+          Case Study
+          <svg class="scard-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H3.5M9.5 2.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        ${p.live!=='#'?`<a class="scard-btn" href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`:''}
+        <a class="scard-btn" href="${p.github}" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>`;
+
+  /* Mouse light effect */
+  const light = card.querySelector('.scard-light');
+  card.addEventListener('pointermove', e => {
+    if (window.matchMedia('(pointer:coarse)').matches) return;
+    const r = card.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+    const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+    card.style.setProperty('--lx', x + '%');
+    card.style.setProperty('--ly', y + '%');
+  });
+
+  card.addEventListener('click', () => { window.location = p.page; });
+  card.addEventListener('keydown', e => { if (e.key === 'Enter') window.location = p.page; });
+
+  stackCards.appendChild(card);
+
+  /* Nav dot */
+  const dot = document.createElement('div');
+  dot.className = 'stack-dot' + (i === 0 ? ' active' : '');
+  stackNav.appendChild(dot);
+});
+
+/* ── GSAP Stacking Animation ─────────────────────────── */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function initGSAP() {
+  if (!window.gsap || !window.ScrollTrigger) {
+    // Fallback: just show cards
+    Array.from(stackCards.children).forEach((c,i) => {
+      c.style.transform = `translateY(${i*4}px) scale(${1 - i*0.02})`;
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = Array.from(stackCards.children);
+  const dots = Array.from(stackNav.children);
+  const n = cards.length;
+
+  // Set stagger height: each card needs enough scroll distance
+  const cardScrollLength = window.innerHeight * 0.85;
+  stackContainer.style.height = (window.innerHeight + cardScrollLength * (n - 1)) + 'px';
+
+  // Initial state: all cards stacked at same position, but hidden below
+  cards.forEach((card, i) => {
+    if (i === 0) {
+      gsap.set(card, { y: 0, scale: 1, opacity: 1, zIndex: n - i });
+    } else {
+      gsap.set(card, { y: '100%', scale: 1, opacity: 0, zIndex: n - i });
+    }
+  });
+
+  // Master ScrollTrigger that drives the whole stack
+  ScrollTrigger.create({
+    trigger: stackContainer,
+    start: 'top top',
+    end: `+=${cardScrollLength * (n - 1)}`,
+    pin: stackCards.parentElement,
+    scrub: 1.2,
+    onUpdate(self) {
+      const prog = self.progress; // 0 → 1
+      // Which card should be on top
+      const rawIndex = prog * (n - 1);
+      const activeIndex = Math.min(Math.floor(rawIndex + 0.05), n - 1);
+
+      cards.forEach((card, i) => {
+        // Update nav dots
+        if (dots[i]) dots[i].classList.toggle('active', i === activeIndex);
+
+        if (i > activeIndex) {
+          // Cards not yet revealed: stay below
+          gsap.set(card, { y: '100%', scale: 1, opacity: 0 });
+        } else if (i === activeIndex) {
+          // Current top card: slide in from below
+          const localProg = Math.max(0, Math.min(1, rawIndex - (i - 1)));
+          const y = i === 0 ? 0 : (1 - localProg) * 100;
+          gsap.set(card, { y: y + '%', scale: 1, opacity: y < 90 ? 1 : 0 });
+        } else {
+          // Already-passed cards: scale down and stay
+          const depth = activeIndex - i;
+          const scale = Math.max(0.88, 1 - depth * 0.04);
+          const opacity = Math.max(0.5, 1 - depth * 0.15);
+          const yPx = depth * -18; // slight upward offset to show stacking
+          gsap.set(card, { y: yPx, scale, opacity });
+        }
+      });
+    }
+  });
+}
+
+// Wait for GSAP to load
+if (window.gsap && window.ScrollTrigger) {
+  initGSAP();
+} else {
+  // GSAP loaded via sync script tags above, but just in case
+  window.addEventListener('load', initGSAP);
+}
+</script>
+</body>
+</html>
