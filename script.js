@@ -367,6 +367,15 @@
     modalWhatsappLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
   }
 
+  /* ---- Floating WhatsApp button (centralized on WHATSAPP_NUMBER above) ---- */
+  const whatsappFloat = $("#whatsapp-float-btn");
+  if (whatsappFloat) {
+    const floatText = encodeURIComponent(
+      "Hi Muzammil, I found your portfolio and would like to talk about a project.",
+    );
+    whatsappFloat.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${floatText}`;
+  }
+
   /* ---- Contact modal trigger (Email links across the page) ---- */
   const contactModal = $("#contact-modal");
   $$(".js-contact-trigger").forEach((trigger) => {
@@ -376,33 +385,92 @@
     });
   });
 
-  /* ---- Contact form: builds a mailto with the entered details ---- */
+  /* ---- Contact form: validates, then hands the message to WhatsApp ----
+   * Flow: validate fields -> show a brief "sending" state -> build a
+   * pre-filled WhatsApp message (name, email, subject, message) -> open
+   * WhatsApp in a new tab. Falls back to the "Email directly" link in the
+   * modal for anyone who prefers email instead.
+   */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const contactForm = $("#contact-form");
   if (contactForm) {
+    const submitBtn = $(".modal-submit", contactForm);
+    const submitLabel = submitBtn ? submitBtn.textContent : "";
+
+    const fieldError = (input, msg) => {
+      input.setAttribute("aria-invalid", msg ? "true" : "false");
+      const small = input.parentElement.querySelector(".field-error");
+      if (small) small.textContent = msg || "";
+    };
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = $("#cf-name", contactForm).value.trim();
-      const email = $("#cf-email", contactForm).value.trim();
-      const message = $("#cf-message", contactForm).value.trim();
+      const nameInput = $("#cf-name", contactForm);
+      const emailInput = $("#cf-email", contactForm);
+      const subjectInput = $("#cf-subject", contactForm);
+      const messageInput = $("#cf-message", contactForm);
       const note = $("#cf-note", contactForm);
 
-      if (!name || !email || !message) {
-        if (note) note.textContent = "Please fill in every field.";
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const subject = subjectInput ? subjectInput.value.trim() : "";
+      const message = messageInput.value.trim();
+
+      let hasError = false;
+      fieldError(nameInput, name ? "" : "Please enter your name.");
+      if (!name) hasError = true;
+
+      if (!email) {
+        fieldError(emailInput, "Please enter your email.");
+        hasError = true;
+      } else if (!EMAIL_RE.test(email)) {
+        fieldError(emailInput, "That email doesn't look right.");
+        hasError = true;
+      } else {
+        fieldError(emailInput, "");
+      }
+
+      fieldError(messageInput, message ? "" : "Tell me a little about the project.");
+      if (!message) hasError = true;
+
+      if (hasError) {
+        if (note) note.textContent = "Please fix the highlighted fields.";
         return;
       }
 
-      const subject = encodeURIComponent(
-        `Project inquiry from ${name}`,
-      );
-      const body = encodeURIComponent(
-        `${message}\n\n— ${name} (${email})`,
-      );
-      const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-
-      if (note) {
-        note.textContent = "Opening your email app to send this…";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
       }
-      window.location.href = mailtoUrl;
+      if (note) note.textContent = "Preparing your message…";
+
+      const lines = [
+        "Hello Muhammad Muzammil,",
+        "",
+        "I would like to contact you through your portfolio.",
+        "",
+        `Name: ${name}`,
+        `Email: ${email}`,
+      ];
+      if (subject) lines.push(`Subject: ${subject}`);
+      lines.push("", "Message:", message);
+
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+
+      setTimeout(() => {
+        if (note) note.textContent = "Opening WhatsApp with your message…";
+        if (submitBtn) submitBtn.textContent = "Sent ✓";
+        window.open(waUrl, "_blank", "noopener");
+        setTimeout(() => {
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+          }
+          if (note) note.textContent = "";
+        }, 1600);
+      }, 500);
     });
   }
 
@@ -471,4 +539,29 @@
       }
     });
   });
+
+  /* ---------------- Smooth cross-page transitions ---------------- */
+  // Same-site, same-tab links to another .html page (Home <-> Projects,
+  // the "View My Work" / "Explore all projects" CTAs, etc.) get a quick
+  // fade-out before the browser navigates, so the two pages feel like
+  // one continuous experience instead of a hard page reload.
+  if (!reduceMotion) {
+    $$("a[href]").forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const isSamePageAnchor = href.startsWith("#");
+      const isHtmlPage = /\.html(#.*)?$/.test(href.split("?")[0]);
+      const opensNewTab = link.target && link.target !== "_self";
+
+      if (isSamePageAnchor || !isHtmlPage || opensNewTab) return;
+
+      link.addEventListener("click", (e) => {
+        if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+        e.preventDefault();
+        document.body.classList.add("page-transition-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 260);
+      });
+    });
+  }
 })();
